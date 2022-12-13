@@ -1,32 +1,30 @@
+using System.Collections.Generic;
 namespace Library;
-public class compuertas
+
+public abstract class compuertas : IInput, IGate
 
 {
-    public compuertas(string nombre)
+    public compuertas(string name)
     {
-        this.Nombre = nombre;
-        this.Entradas = new Dictionary<string, int>();
+        this.Name = name;
+        this.Inputs = new Dictionary<string, IInput>();
     }
-    public string Nombre { get; set; }
-    public Dictionary<string, int> Entradas { get; set; }
+    public string Name { get; set; }
+    public Dictionary<string, IInput> Inputs { get; set; }
    
-    public void AgregarEntrada(string nombre, int valor)
+    public void AddInput(string name, IInput value)
     {
-        if (valor > 0)
+        
+        if (!Inputs.ContainsKey(name))
         {
-            valor = 1;
+            Inputs.Add(name, value);
         }
         else 
         {
-            valor = 0;
-        }
-        if (!Entradas.ContainsKey(nombre))
-        {
-            Entradas.Add(nombre, valor);
-        }
-        else 
-        {
-            Entradas[nombre] = valor;             
+            Inputs[name] = value;             
         }        
     }
+    
+
+    public abstract int Calculate ();
 }

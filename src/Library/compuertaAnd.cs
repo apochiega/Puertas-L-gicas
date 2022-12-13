@@ -1,18 +1,18 @@
+using System.Collections.Generic;
 namespace Library;
 public class compuertaAnd : compuertas
 {
-    public compuertaAnd (string nombre) : base(nombre)
+    public compuertaAnd (string name) : base(name)
     {
     }
-    public int ValorFinal()
+    public override int Calculate()
     {
-        int valor = 1;
-        foreach (var i in Entradas)
-        {
-            valor = (valor * i.Value); 
-        
 
+        int value = 1;
+        foreach (IInput input in Inputs.Values)
+        {
+            value = value * input.Calculate();
         }
-        return valor;
+        return value;
     }
 }
