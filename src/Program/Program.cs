@@ -7,7 +7,9 @@
 using System;
 using Library;
 
-
+/// <summary>
+/// Programa principal
+/// </summary>
 public class Program
 {
     
@@ -33,4 +35,14 @@ public class Program
         
         Console.WriteLine(NOT.Calculate());
     }
+    catch (ArgumentNullException)
+    {
+        Console.WriteLine("Valor ingresado inválido");
+    }
+
+    catch (CantidadDeEntradasExcepcion)
+        {
+            Console.WriteLine("Cantidad de entradas inválidas");
+        }
+    
 }
