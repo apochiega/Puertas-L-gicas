@@ -11,7 +11,7 @@ public class compuertaOr : compuertas
         int valor = 0;
         foreach (var element in Inputs)
         {   
-            if (element.Value == 1)
+            if (element.Value.Calculate() == 1)
             {
                 valor = 1;
             }

@@ -10,11 +10,11 @@ public class compuertaNot : compuertas
         int valor = 0;
         foreach (var i in Inputs)
         {   
-            if (i.Value == 1)
+            if (i.Value.Calculate() == 1)
             {
                 valor = 0;
             }
-            else if (i.Value == 0)
+            else if (i.Value.Calculate() == 0)
             {
                 valor = 1;
             }
